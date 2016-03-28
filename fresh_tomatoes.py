@@ -75,6 +75,16 @@ main_page_head = '''
               'frameborder': 0
             }));
         });
+        
+        $(document).on('click', '.summary-modal', function (event) {
+            var movieSummary = $(this).attr('data-movieSummary')
+            $("#movie-summary-container").empty().append($("<p></p>", {
+              'id': 'summary',
+              'type': 'text-html',
+              'src': sourceUrl,
+              'frameborder': 0
+            }));
+        });
         // Animate in the movies when the page loads
         $(document).ready(function () {
           $('.movie-tile').hide().first().show("fast", function showNext() {
@@ -97,6 +107,15 @@ main_page_content = '''
             <img src="https://lh5.ggpht.com/v4-628SilF0HtHuHdu5EzxD7WRqOrrTIDi_MhEG6_qkNtUK5Wg7KPkofp_VJoF7RS2LhxwEFCO1ICHZlc-o_=s0#w=24&h=24"/>
           </a>
           <div class="scale-media" id="trailer-video-container">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal" id="movie-summary">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div id="movie-summary-container">
           </div>
         </div>
       </div>
@@ -158,10 +177,6 @@ movie_tile_content = '''
       <div id="plot-{imdb_id}" class="tab-pane fade">
         <h3>Summary</h3>
         <p class="text-justify">{movie_plot}</p>
-      </div>
-      <div id="trailer-{imdb_id}" class="tab-pane fade">
-        <h3>Menu 2</h3>
-        <p>Some content in menu 2.</p>
       </div>
     </div>
 </div>

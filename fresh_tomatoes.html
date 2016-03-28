@@ -69,6 +69,16 @@
               'frameborder': 0
             }));
         });
+        
+        $(document).on('click', '.summary-modal', function (event) {
+            var movieSummary = $(this).attr('data-movieSummary')
+            $("#movie-summary-container").empty().append($("<p></p>", {
+              'id': 'summary',
+              'type': 'text-html',
+              'src': sourceUrl,
+              'frameborder': 0
+            }));
+        });
         // Animate in the movies when the page loads
         $(document).ready(function () {
           $('.movie-tile').hide().first().show("fast", function showNext() {
@@ -87,6 +97,15 @@
             <img src="https://lh5.ggpht.com/v4-628SilF0HtHuHdu5EzxD7WRqOrrTIDi_MhEG6_qkNtUK5Wg7KPkofp_VJoF7RS2LhxwEFCO1ICHZlc-o_=s0#w=24&h=24"/>
           </a>
           <div class="scale-media" id="trailer-video-container">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal" id="movie-summary">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div id="movie-summary-container">
           </div>
         </div>
       </div>
@@ -119,35 +138,6 @@
     <div class="row">
           
 <div class="col-md-6 col-lg-6 movie-tile text-center">
-    <img class="open-movie-tile" src="http://ia.media-imdb.com/images/M/MV5BNTE5NzU3MTYzOF5BMl5BanBnXkFtZTgwNTM5NjQxODE@._V1_SX300.jpg" width="220" height="342" data-trailer-youtube-id="eX_iASz1Si8" data-toggle="modal" data-target="#trailer">
-    <h2>Batman v Superman: Dawn of Justice <br>IMDB Rating : 7.7</h2>
-    <ul class="nav nav-tabs">
-      <li class="active"><a data-toggle="tab" href="#home-tt2975590">Info</a></li>
-      <li><a data-toggle="tab" href="#plot-tt2975590">Summary</a></li>
-      <li><a class="open-movie-tile" data-toggle="modal" data-trailer-youtube-id="eX_iASz1Si8" data-toggle="modal" data-target="#trailer">Trailer</a></li>
-    </ul>
-
-    <div class="tab-content">
-      <div id="home-tt2975590" class="tab-pane fade in active">
-        <h3>Movie Info</h3>
-        <p class="text-left">Title : Batman v Superman: Dawn of Justice</p>
-        <p class="text-left">Year Released : 2016</p>
-        <p class="text-left">Movie Genre : Action, Adventure, Fantasy</p>
-        <p class="text-left">Writer : Chris Terrio, David S. Goyer, Bob Kane (Batman created by), Bill Finger (Batman created by), Jerry Siegel (Superman created by), Joe Shuster (Superman created by)</p>
-        <p class="text-left">Actors : Ben Affleck, Henry Cavill, Amy Adams, Jesse Eisenberg</p>
-      </div>
-      <div id="plot-tt2975590" class="tab-pane fade">
-        <h3>Summary</h3>
-        <p class="text-justify">Following his titanic struggle against General Zod, Metropolis has been razed to the ground and Superman is the most controversial figure in the world. While for many he is still an emblem of hope, a growing number of people consider him a threat to humanity, seeking justice for the chaos he has brought to Earth. As far as Bruce Wayne is concerned, Superman is clearly a danger to society. He fears for the future of the world with such a reckless power left ungoverned, and so he dons his mask and cape to right Superman's wrongs. The rivalry between them is furious, fueled by bitterness and vengeance, and nothing can dissuade them from waging this war. However, a dark new threat arises in the form of a third man: one who has a power greater than either of them to endanger the world and cause total destruction!</p>
-      </div>
-      <div id="trailer-tt2975590" class="tab-pane fade">
-        <h3>Menu 2</h3>
-        <p>Some content in menu 2.</p>
-      </div>
-    </div>
-</div>
-
-<div class="col-md-6 col-lg-6 movie-tile text-center">
     <img class="open-movie-tile" src="http://ia.media-imdb.com/images/M/MV5BMjQyODg5Njc4N15BMl5BanBnXkFtZTgwMzExMjE3NzE@._V1_SX300.jpg" width="220" height="342" data-trailer-youtube-id="ZIM1HydF9UA" data-toggle="modal" data-target="#trailer">
     <h2>Deadpool <br>IMDB Rating : 8.4</h2>
     <ul class="nav nav-tabs">
@@ -168,10 +158,6 @@
       <div id="plot-tt1431045" class="tab-pane fade">
         <h3>Summary</h3>
         <p class="text-justify">This is the origin story of former Special Forces operative turned mercenary Wade Wilson, who after being subjected to a rogue experiment that leaves him with accelerated healing powers, adopts the alter ego Deadpool. Armed with his new abilities and a dark, twisted sense of humor, Deadpool hunts down the man who nearly destroyed his life.</p>
-      </div>
-      <div id="trailer-tt1431045" class="tab-pane fade">
-        <h3>Menu 2</h3>
-        <p>Some content in menu 2.</p>
       </div>
     </div>
 </div>
@@ -198,9 +184,55 @@
         <h3>Summary</h3>
         <p class="text-justify">Woody, Buzz and the whole gang are back. As their owner Andy prepares to depart for college, his loyal toys find themselves in daycare where untamed tots with their sticky little fingers do not play nice. So, it's all for one and one for all as they join Barbie's counterpart Ken, a thespian hedgehog named Mr. Pricklepants and a pink, strawberry-scented teddy bear called Lots-o'-Huggin' Bear to plan their great escape.</p>
       </div>
-      <div id="trailer-tt0435761" class="tab-pane fade">
-        <h3>Menu 2</h3>
-        <p>Some content in menu 2.</p>
+    </div>
+</div>
+
+<div class="col-md-6 col-lg-6 movie-tile text-center">
+    <img class="open-movie-tile" src="http://ia.media-imdb.com/images/M/MV5BMTMyODY1NTg1N15BMl5BanBnXkFtZTcwMTUyODI4Mg@@._V1_SX300.jpg" width="220" height="342" data-trailer-youtube-id="BJ3tHqGlCHg" data-toggle="modal" data-target="#trailer">
+    <h2>Law Abiding Citizen <br>IMDB Rating : 7.4</h2>
+    <ul class="nav nav-tabs">
+      <li class="active"><a data-toggle="tab" href="#home-tt1197624">Info</a></li>
+      <li><a data-toggle="tab" href="#plot-tt1197624">Summary</a></li>
+      <li><a class="open-movie-tile" data-toggle="modal" data-trailer-youtube-id="BJ3tHqGlCHg" data-toggle="modal" data-target="#trailer">Trailer</a></li>
+    </ul>
+
+    <div class="tab-content">
+      <div id="home-tt1197624" class="tab-pane fade in active">
+        <h3>Movie Info</h3>
+        <p class="text-left">Title : Law Abiding Citizen</p>
+        <p class="text-left">Year Released : 2009</p>
+        <p class="text-left">Movie Genre : Crime, Drama, Thriller</p>
+        <p class="text-left">Writer : Kurt Wimmer</p>
+        <p class="text-left">Actors : Jamie Foxx, Gerard Butler, Colm Meaney, Bruce McGill</p>
+      </div>
+      <div id="plot-tt1197624" class="tab-pane fade">
+        <h3>Summary</h3>
+        <p class="text-justify">Clyde Shelton's family is brutally murdered. The ones responsible are caught. However, because of improper procedure, the D.A., Nick Rice only has circumstantial evidence. So he decides to get one of them to testify against the other. When Shelton learns of this, he is not happy. Ten years later, the one who was convicted is being executed but something goes wrong; his execution goes awry and he suffers. They learn that someone tampered with the machine. And the other one is found dead, killed in a gruesome manner. Rice suspects Shelton, so he has him picked up. At first, Shelton agrees to a plea agreement with Rice but changes his mind. It appears that Shelton is not done, it appears he blames the whole system and is declaring war on it going after everyone involved with his family's case. So Rice has to stop him but Shelton is way ahead of him.</p>
+      </div>
+    </div>
+</div>
+
+<div class="col-md-6 col-lg-6 movie-tile text-center">
+    <img class="open-movie-tile" src="http://ia.media-imdb.com/images/M/MV5BMjIxNTU4MzY4MF5BMl5BanBnXkFtZTgwMzM4ODI3MjE@._V1_SX300.jpg" width="220" height="342" data-trailer-youtube-id="Lm8p5rlrSkY" data-toggle="modal" data-target="#trailer">
+    <h2>Interstellar <br>IMDB Rating : 8.6</h2>
+    <ul class="nav nav-tabs">
+      <li class="active"><a data-toggle="tab" href="#home-tt0816692">Info</a></li>
+      <li><a data-toggle="tab" href="#plot-tt0816692">Summary</a></li>
+      <li><a class="open-movie-tile" data-toggle="modal" data-trailer-youtube-id="Lm8p5rlrSkY" data-toggle="modal" data-target="#trailer">Trailer</a></li>
+    </ul>
+
+    <div class="tab-content">
+      <div id="home-tt0816692" class="tab-pane fade in active">
+        <h3>Movie Info</h3>
+        <p class="text-left">Title : Interstellar</p>
+        <p class="text-left">Year Released : 2014</p>
+        <p class="text-left">Movie Genre : Adventure, Drama, Sci-Fi</p>
+        <p class="text-left">Writer : Jonathan Nolan, Christopher Nolan</p>
+        <p class="text-left">Actors : Ellen Burstyn, Matthew McConaughey, Mackenzie Foy, John Lithgow</p>
+      </div>
+      <div id="plot-tt0816692" class="tab-pane fade">
+        <h3>Summary</h3>
+        <p class="text-justify">In the near future, Earth has been devastated by drought and famine, causing a scarcity in food and extreme changes in climate. When humanity is facing extinction, a mysterious rip in the space-time continuum is discovered, giving mankind the opportunity to widen its lifespan. A group of explorers must travel beyond our solar system in search of a planet that can sustain life. The crew of the Endurance are required to think bigger and go further than any human in history as they embark on an interstellar voyage into the unknown. Coop, the pilot of the Endurance, must decide between seeing his children again and the future of the human race.</p>
       </div>
     </div>
 </div>
