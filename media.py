@@ -4,6 +4,7 @@ class Movie():
             Creates an instance of a movie and appends them to
             a list(movies)
         """
+        this.imdbID = movie_info['imdbID']
         this.title = movie_info['Title']
         this.plot = movie_info['Plot']
         this.year = movie_info['Year']

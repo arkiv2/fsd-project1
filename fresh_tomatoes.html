@@ -59,7 +59,7 @@
             $("#trailer-video-container").empty();
         });
         // Start playing the video whenever the trailer modal is opened
-        $(document).on('click', '.movie-tile', function (event) {
+        $(document).on('click', '.open-movie-tile', function (event) {
             var trailerYouTubeId = $(this).attr('data-trailer-youtube-id')
             var sourceUrl = 'http://www.youtube.com/embed/' + trailerYouTubeId + '?autoplay=1&html5=1';
             $("#trailer-video-container").empty().append($("<iframe></iframe>", {
@@ -93,32 +93,119 @@
     </div>
 
     <!-- Main Page Content -->
-    <div class="container">
-      <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
-          <div class="navbar-header">
-            <a class="navbar-brand" href="#">Fresh Tomatoes Movie Trailers</a>
-          </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li><a runat="server" href="#">Home</a></li>
+                    <li><a runat="server" href="#">About</a></li>
+                    <li><a runat="server" href="#">Contact</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <div class="navbar-form " role="search">
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Search" name="srch-term" id="srch-term" style="max-width: 100%; width: 100%;">
+                            <div class="input-group-btn">
+                                <button class="btn btn-default" style="background: rgb(72, 166, 72);" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </ul> 
+            </div>  
         </div>
+    </div>
+    
+    <div class="container">
+    <div class="row">
+          
+<div class="col-md-6 col-lg-6 movie-tile text-center">
+    <img class="open-movie-tile" src="http://ia.media-imdb.com/images/M/MV5BNTE5NzU3MTYzOF5BMl5BanBnXkFtZTgwNTM5NjQxODE@._V1_SX300.jpg" width="220" height="342" data-trailer-youtube-id="eX_iASz1Si8" data-toggle="modal" data-target="#trailer">
+    <h2>Batman v Superman: Dawn of Justice <br>IMDB Rating : 7.7</h2>
+    <ul class="nav nav-tabs">
+      <li class="active"><a data-toggle="tab" href="#home-tt2975590">Info</a></li>
+      <li><a data-toggle="tab" href="#plot-tt2975590">Summary</a></li>
+      <li><a class="open-movie-tile" data-toggle="modal" data-trailer-youtube-id="eX_iASz1Si8" data-toggle="modal" data-target="#trailer">Trailer</a></li>
+    </ul>
+
+    <div class="tab-content">
+      <div id="home-tt2975590" class="tab-pane fade in active">
+        <h3>Movie Info</h3>
+        <p class="text-left">Title : Batman v Superman: Dawn of Justice</p>
+        <p class="text-left">Year Released : 2016</p>
+        <p class="text-left">Movie Genre : Action, Adventure, Fantasy</p>
+        <p class="text-left">Writer : Chris Terrio, David S. Goyer, Bob Kane (Batman created by), Bill Finger (Batman created by), Jerry Siegel (Superman created by), Joe Shuster (Superman created by)</p>
+        <p class="text-left">Actors : Ben Affleck, Henry Cavill, Amy Adams, Jesse Eisenberg</p>
+      </div>
+      <div id="plot-tt2975590" class="tab-pane fade">
+        <h3>Summary</h3>
+        <p class="text-justify">Following his titanic struggle against General Zod, Metropolis has been razed to the ground and Superman is the most controversial figure in the world. While for many he is still an emblem of hope, a growing number of people consider him a threat to humanity, seeking justice for the chaos he has brought to Earth. As far as Bruce Wayne is concerned, Superman is clearly a danger to society. He fears for the future of the world with such a reckless power left ungoverned, and so he dons his mask and cape to right Superman's wrongs. The rivalry between them is furious, fueled by bitterness and vengeance, and nothing can dissuade them from waging this war. However, a dark new threat arises in the form of a third man: one who has a power greater than either of them to endanger the world and cause total destruction!</p>
+      </div>
+      <div id="trailer-tt2975590" class="tab-pane fade">
+        <h3>Menu 2</h3>
+        <p>Some content in menu 2.</p>
       </div>
     </div>
-    <div class="container">
-      
-<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="eX_iASz1Si8" data-toggle="modal" data-target="#trailer">
-    <img src="http://ia.media-imdb.com/images/M/MV5BNTE5NzU3MTYzOF5BMl5BanBnXkFtZTgwNTM5NjQxODE@._V1_SX300.jpg" width="220" height="342">
-    <h2>Batman v Superman: Dawn of Justice</h2>
 </div>
 
-<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="ZIM1HydF9UA" data-toggle="modal" data-target="#trailer">
-    <img src="http://ia.media-imdb.com/images/M/MV5BMjQyODg5Njc4N15BMl5BanBnXkFtZTgwMzExMjE3NzE@._V1_SX300.jpg" width="220" height="342">
-    <h2>Deadpool</h2>
+<div class="col-md-6 col-lg-6 movie-tile text-center">
+    <img class="open-movie-tile" src="http://ia.media-imdb.com/images/M/MV5BMjQyODg5Njc4N15BMl5BanBnXkFtZTgwMzExMjE3NzE@._V1_SX300.jpg" width="220" height="342" data-trailer-youtube-id="ZIM1HydF9UA" data-toggle="modal" data-target="#trailer">
+    <h2>Deadpool <br>IMDB Rating : 8.4</h2>
+    <ul class="nav nav-tabs">
+      <li class="active"><a data-toggle="tab" href="#home-tt1431045">Info</a></li>
+      <li><a data-toggle="tab" href="#plot-tt1431045">Summary</a></li>
+      <li><a class="open-movie-tile" data-toggle="modal" data-trailer-youtube-id="ZIM1HydF9UA" data-toggle="modal" data-target="#trailer">Trailer</a></li>
+    </ul>
+
+    <div class="tab-content">
+      <div id="home-tt1431045" class="tab-pane fade in active">
+        <h3>Movie Info</h3>
+        <p class="text-left">Title : Deadpool</p>
+        <p class="text-left">Year Released : 2016</p>
+        <p class="text-left">Movie Genre : Action, Adventure, Comedy</p>
+        <p class="text-left">Writer : Rhett Reese, Paul Wernick, Fabian Nicieza (character), Rob Liefeld (character)</p>
+        <p class="text-left">Actors : Ryan Reynolds, Karan Soni, Ed Skrein, Michael Benyaer</p>
+      </div>
+      <div id="plot-tt1431045" class="tab-pane fade">
+        <h3>Summary</h3>
+        <p class="text-justify">This is the origin story of former Special Forces operative turned mercenary Wade Wilson, who after being subjected to a rogue experiment that leaves him with accelerated healing powers, adopts the alter ego Deadpool. Armed with his new abilities and a dark, twisted sense of humor, Deadpool hunts down the man who nearly destroyed his life.</p>
+      </div>
+      <div id="trailer-tt1431045" class="tab-pane fade">
+        <h3>Menu 2</h3>
+        <p>Some content in menu 2.</p>
+      </div>
+    </div>
 </div>
 
-<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="JcpWXaA2qeg" data-toggle="modal" data-target="#trailer">
-    <img src="http://ia.media-imdb.com/images/M/MV5BMTgxOTY4Mjc0MF5BMl5BanBnXkFtZTcwNTA4MDQyMw@@._V1_SX300.jpg" width="220" height="342">
-    <h2>Toy Story 3</h2>
+<div class="col-md-6 col-lg-6 movie-tile text-center">
+    <img class="open-movie-tile" src="http://ia.media-imdb.com/images/M/MV5BMTgxOTY4Mjc0MF5BMl5BanBnXkFtZTcwNTA4MDQyMw@@._V1_SX300.jpg" width="220" height="342" data-trailer-youtube-id="JcpWXaA2qeg" data-toggle="modal" data-target="#trailer">
+    <h2>Toy Story 3 <br>IMDB Rating : 8.4</h2>
+    <ul class="nav nav-tabs">
+      <li class="active"><a data-toggle="tab" href="#home-tt0435761">Info</a></li>
+      <li><a data-toggle="tab" href="#plot-tt0435761">Summary</a></li>
+      <li><a class="open-movie-tile" data-toggle="modal" data-trailer-youtube-id="JcpWXaA2qeg" data-toggle="modal" data-target="#trailer">Trailer</a></li>
+    </ul>
+
+    <div class="tab-content">
+      <div id="home-tt0435761" class="tab-pane fade in active">
+        <h3>Movie Info</h3>
+        <p class="text-left">Title : Toy Story 3</p>
+        <p class="text-left">Year Released : 2010</p>
+        <p class="text-left">Movie Genre : Animation, Adventure, Comedy</p>
+        <p class="text-left">Writer : John Lasseter (story), Andrew Stanton (story), Lee Unkrich (story), Michael Arndt (screenplay)</p>
+        <p class="text-left">Actors : Tom Hanks, Tim Allen, Joan Cusack, Ned Beatty</p>
+      </div>
+      <div id="plot-tt0435761" class="tab-pane fade">
+        <h3>Summary</h3>
+        <p class="text-justify">Woody, Buzz and the whole gang are back. As their owner Andy prepares to depart for college, his loyal toys find themselves in daycare where untamed tots with their sticky little fingers do not play nice. So, it's all for one and one for all as they join Barbie's counterpart Ken, a thespian hedgehog named Mr. Pricklepants and a pink, strawberry-scented teddy bear called Lots-o'-Huggin' Bear to plan their great escape.</p>
+      </div>
+      <div id="trailer-tt0435761" class="tab-pane fade">
+        <h3>Menu 2</h3>
+        <p>Some content in menu 2.</p>
+      </div>
+    </div>
 </div>
 
+          </div>
     </div>
   </body>
 </html>

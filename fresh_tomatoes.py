@@ -65,7 +65,7 @@ main_page_head = '''
             $("#trailer-video-container").empty();
         });
         // Start playing the video whenever the trailer modal is opened
-        $(document).on('click', '.movie-tile', function (event) {
+        $(document).on('click', '.open-movie-tile', function (event) {
             var trailerYouTubeId = $(this).attr('data-trailer-youtube-id')
             var sourceUrl = 'http://www.youtube.com/embed/' + trailerYouTubeId + '?autoplay=1&html5=1';
             $("#trailer-video-container").empty().append($("<iframe></iframe>", {
@@ -103,17 +103,32 @@ main_page_content = '''
     </div>
 
     <!-- Main Page Content -->
-    <div class="container">
-      <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
-          <div class="navbar-header">
-            <a class="navbar-brand" href="#">Fresh Tomatoes Movie Trailers</a>
-          </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li><a runat="server" href="#">Home</a></li>
+                    <li><a runat="server" href="#">About</a></li>
+                    <li><a runat="server" href="#">Contact</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <div class="navbar-form " role="search">
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Search" name="srch-term" id="srch-term" style="max-width: 100%; width: 100%;">
+                            <div class="input-group-btn">
+                                <button class="btn btn-default" style="background: rgb(72, 166, 72);" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </ul> 
+            </div>  
         </div>
-      </div>
     </div>
+    
     <div class="container">
-      {movie_tiles}
+    <div class="row">
+          {movie_tiles}
+          </div>
     </div>
   </body>
 </html>
@@ -122,9 +137,33 @@ main_page_content = '''
 
 # A single movie entry html template
 movie_tile_content = '''
-<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="{trailer_youtube_id}" data-toggle="modal" data-target="#trailer">
-    <img src="{poster_image_url}" width="220" height="342">
-    <h2>{movie_title}</h2>
+<div class="col-md-6 col-lg-6 movie-tile text-center">
+    <img class="open-movie-tile" src="{poster_image_url}" width="220" height="342" data-trailer-youtube-id="{trailer_youtube_id}" data-toggle="modal" data-target="#trailer">
+    <h2>{movie_title} <br>IMDB Rating : {movie_rating}</h2>
+    <ul class="nav nav-tabs">
+      <li class="active"><a data-toggle="tab" href="#home-{imdb_id}">Info</a></li>
+      <li><a data-toggle="tab" href="#plot-{imdb_id}">Summary</a></li>
+      <li><a class="open-movie-tile" data-toggle="modal" data-trailer-youtube-id="{trailer_youtube_id}" data-toggle="modal" data-target="#trailer">Trailer</a></li>
+    </ul>
+
+    <div class="tab-content">
+      <div id="home-{imdb_id}" class="tab-pane fade in active">
+        <h3>Movie Info</h3>
+        <p class="text-left">Title : {movie_title}</p>
+        <p class="text-left">Year Released : {movie_year}</p>
+        <p class="text-left">Movie Genre : {movie_genre}</p>
+        <p class="text-left">Writer : {movie_writer}</p>
+        <p class="text-left">Actors : {movie_actors}</p>
+      </div>
+      <div id="plot-{imdb_id}" class="tab-pane fade">
+        <h3>Summary</h3>
+        <p class="text-justify">{movie_plot}</p>
+      </div>
+      <div id="trailer-{imdb_id}" class="tab-pane fade">
+        <h3>Menu 2</h3>
+        <p>Some content in menu 2.</p>
+      </div>
+    </div>
 </div>
 '''
 
@@ -144,6 +183,13 @@ def create_movie_tiles_content(movies):
         # Append the tile for the movie with its content filled in
         content += movie_tile_content.format(
             movie_title=movie.title,
+            movie_plot=movie.plot,
+            movie_year=movie.year,
+            movie_genre=movie.genre,
+            movie_writer=movie.writer,
+            movie_actors=movie.actors,
+            movie_rating=movie.rating,
+            imdb_id=movie.imdbID,
             poster_image_url=movie.poster_image_url,
             trailer_youtube_id=trailer_youtube_id
         )
