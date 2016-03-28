@@ -1,10 +1,18 @@
-from fresh_tomatoes import open_movies_page
+"""main.py: Main module to prepare, initialize and render movie list"""
+
+__author__ = "Archimedes Valencia II"
+
+__version__ = "1.0.3"
+__email__ = "arvalencia@gbox.adnu.edu.ph"
+__status__ = "Production"
+
+from fresh_tomatoes import open_movies_page 
 from boom_box import getIMDBInfo
 from media import Movie
 
 movies = [] #Initialize list to be appended when movies are created
 
-#Declare movies using the syntax 
+#Instantiate the Movie class using the syntax 
   #<movie_name> = Movie(<movie_list>, getIMDBInfo("<movie_imdb_id"), "<movie_youtube_trailer_url>")
 dead_pool = Movie(movies, getIMDBInfo("tt1431045"),
                           "https://www.youtube.com/watch?v=ZIM1HydF9UA")
