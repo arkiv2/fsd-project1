@@ -6,6 +6,7 @@ __version__ = "1.0.3"
 __email__ = "arvalencia@gbox.adnu.edu.ph"
 __status__ = "Production"
 
+
 class Movie():
     def __init__(this, movies, movie_info, trailer_url):
         """
