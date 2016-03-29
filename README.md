@@ -11,7 +11,7 @@ This project is a python application that renders an html output from a given mo
 
 This project uses a number of open source projects to work properly:
 
-* [OMDBAPI] - The OMDb API is a free web service to obtain movie information, all content and images on the site are contributed and maintained by our users.
+* [OMDBAPI] - The OMDB API is a free web service to obtain movie information, all content and images on the site are contributed and maintained by our users.
 * [Twitter Bootstrap] - great UI boilerplate for modern web apps
 * [jQuery]
 
@@ -46,7 +46,6 @@ This project is currently extended with the following python plugins
 
 * urllib
 * json
-* 
 
 And non-python plugins(web API)
 
